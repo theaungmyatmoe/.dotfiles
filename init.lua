@@ -1,0 +1,22 @@
+-- which key
+require("plugin-manager")
+require("core.options")
+require("core.keymaps")
+require("core.colorscheme")
+
+require("plugins.comment")
+require("plugins.neo_tree")
+require("plugins.lualine")
+require("plugins.telescope")
+require("plugins.indent_blankline")
+require("plugins.autopairs")
+require("plugins.colorizer")
+require("plugins.bufferline")
+require("plugins.nvim_cmp")
+require("plugins.gitsigns")
+
+require("plugins.lsp.mason")
+require("plugins.lsp.lspsaga")
+require("plugins.lsp.lspconfig")
+require("plugins.lsp.null_ls")
+require("plugins.treesitter")
