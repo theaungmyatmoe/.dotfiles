@@ -1,20 +1,25 @@
-vim.g.mapleader = ' ' -- space for leader key
+vim.g.mapleader = " " -- space for leader key
 
 local keymap = vim.keymap
 
 -- general keymaps
 
-keymap.set('i', 'jk', '<ESC>')
-
+keymap.set("i", "jk", "<ESC>")
+vim.cmd([[ 
+nnoremap <C-q> :q!<CR>
+nnoremap <C-w> :bdelete<CR>
+]])
+keymap.set("i", "<C-s>", ":w<CR>")
+keymap.set("n", "<C-a>", "gg<S-v>G")
 -- remove searched highlight
-keymap.set('n', '<leader>nh', ':nohl<CR>')
+keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- delete single word without copying
-keymap.set('n', 'x', '_x')
+keymap.set("n", "x", "_x")
 
 -- auto increment and decrement
-keymap.set('n', '<leader>+', '<C-a>')
-keymap.set('n', '<leader>-', '<C-x>')
+keymap.set("n", "<leader>+", "<C-a>")
+keymap.set("n", "<leader>-", "<C-x>")
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
@@ -22,32 +27,28 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
-keymap.set('n', '<A-Left>', ':bprevious<CR>') -- previous: buffer tab
-keymap.set('n', '<A-Right>', ':bnext<CR>') -- next buffer
+keymap.set("n", "<A-Left>", ":bprevious<CR>") -- previous: buffer tab
+keymap.set("n", "<A-Right>", ":bnext<CR>") -- next buffer
 
 keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
-
-
 -- Resize window
-keymap.set('n', '<C-w><left>', '<C-w><')
-keymap.set('n', '<C-w><right>', '<C-w>>')
-keymap.set('n', '<C-w><up>', '<C-w>+')
-keymap.set('n', '<C-w><down>', '<C-w>-')
+keymap.set("n", "<C-w><left>", "<C-w><")
+keymap.set("n", "<C-w><right>", "<C-w>>")
+keymap.set("n", "<C-w><up>", "<C-w>+")
+keymap.set("n", "<C-w><down>", "<C-w>-")
 
-
--- [[ IDE plugins keymaps ]] 
+-- [[ IDE plugins keymaps ]]
 
 -- split window full screen mode toggler
-keymap.set('n', '<silent><F3>', ':MaximizerToggle<CR>')
+keymap.set("n", "<silent><F3>", ":MaximizerToggle<CR>")
 
 -- file browser
-keymap.set('n', '<leader>ee', ':NeoTreeFloatToggle<CR>', { silent = true})
-keymap.set('n', '<A-1>', ':NeoTreeFocusToggle<CR>', { silent = true})
-
+keymap.set("n", "<leader>ee", ":NeoTreeFloatToggle<CR>", { silent = true })
+keymap.set("n", "<A-1>", ":NeoTreeFocusToggle<CR>", { silent = true })
 
 -- telescope
 keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
@@ -61,4 +62,3 @@ keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git 
 keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
-
