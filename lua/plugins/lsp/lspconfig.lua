@@ -73,6 +73,7 @@ typescript.setup({
 lspconfig["tsserver"].setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
 })
 
 -- configure css server
